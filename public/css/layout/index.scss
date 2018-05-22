@@ -1,0 +1,15 @@
+#tb_produtos tbody td a{
+    @extend %link-table;
+}
+
+.wellcome{
+    h2{
+        margin-bottom: 20px;
+    }
+    a{
+        @extend %link-table;
+    }
+    h3{
+        margin-top: 20px;
+    }
+}

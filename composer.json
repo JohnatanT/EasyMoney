@@ -1,0 +1,5 @@
+{
+    "require": {
+        "escapework/frete": "0.5.*"
+    }
+}

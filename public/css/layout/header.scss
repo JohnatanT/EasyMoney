@@ -1,0 +1,6 @@
+.navbar {
+    margin-bottom: 50px;
+    .form-inline button:hover a{
+        @extend %link-padrao-hover;
+    }
+}

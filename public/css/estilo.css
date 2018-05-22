@@ -1,0 +1,34 @@
+.navbar .form-inline button:hover a {
+  text-decoration: none;
+  color: #fff; }
+
+#tb_produtos tbody td a, .wellcome a {
+  padding: 8px 30px;
+  color: #fff;
+  background-color: #3bc5cc;
+  text-decoration: none; }
+
+.navbar {
+  margin-bottom: 50px; }
+
+.wellcome h2 {
+  margin-bottom: 20px; }
+.wellcome h3 {
+  margin-top: 20px; }
+
+.cadProd form .col-md-12 {
+  padding: 0px; }
+.cadProd form button {
+  margin-bottom: 30px;
+  margin-top: 20px; }
+
+#texto-cadProd {
+  padding: 0px; }
+
+#frete {
+  margin-bottom: 20px; }
+
+.cadDesc form .col-md-12 {
+  padding: 0px; }
+
+/*# sourceMappingURL=estilo.css.map */
