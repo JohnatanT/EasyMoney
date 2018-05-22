@@ -75,8 +75,7 @@
                 </div>
                 <div class="col-md-12">
                 <h3>Deseja aplicar um desconto? Escolha um!</h3>
-                <button type="button" id="selectDesc" class="btn btn-warning">Escolher Desconto</button>
-                    <select name="desconto" id-"desconto" class="form-control">
+                    <select name="desconto" id-"descontoSelect" class="form-control">
                     <option value="0">Sem Desconto</option>
                     <?php
                         $con = conexao();

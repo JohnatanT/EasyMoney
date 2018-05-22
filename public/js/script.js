@@ -64,6 +64,3 @@ function caclculaCep(_cep){
     });
 }
 
-$('#selectDesc').click(function () {
-  
-});

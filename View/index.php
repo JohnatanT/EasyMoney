@@ -1,3 +1,7 @@
+<?php
+    require_once '../database/conexao.php'
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -54,30 +58,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    <?php
+                        $con = conexao();
+                        $query = "SELECT p.nome AS NomeProduto, p.id AS id ,p.descricao AS Descricao, p.preco AS PrecoOriginal, f.tipo AS TipoFoto, f.foto AS foto ,d.valor AS ValorDesconto, d.dataFim AS DataFinal 
+                        FROM produto AS P INNER JOIN descontos AS d ON p.id_desconto = d.id 
+                        INNER JOIN fotos as f ON p.id_foto = f.id";
+                        $stmt = $con->prepare($query);
+                        $stmt->execute();
+                        //$row = $stmt->fetch(PDO::FETCH_OBJ);
+                        //var_dump($row);
+                        while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+                    ?>
+                            <tr>
                             <th scope="row">1</th>
-                            <td>Televisão</td>
-                            <td>R$ 500,00</td>
-                            <td><img class="img-responsive" src="../public/img/75x75.png" alt="Imagem do produto" class="rounded"></td>
-                            <td>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto.</td>
-                            <td><a href="produto.php?id=1">Ir <i class="fas fa-chevron-right"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Rádio</td>
-                            <td>R$ 100,00</td>
-                            <td><img class="img-responsive" src="../public/img/75x75.png" alt="Imagem do produto" class="rounded"></td>
-                            <td>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto.</td>
-                            <td><a href="produto.php?id=2">Ir <i class="fas fa-chevron-right"></i></a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Geladeira</td>
-                            <td>R$ 800,00</td>
-                            <td><img class="img-responsive" src="../public/img/75x75.png" alt="Imagem do produto" class="rounded"></td>
-                            <td>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto.</td>
-                            <td><a href="produto.php?id=3">Ir <i class="fas fa-chevron-right"></i></a></td>
-                        </tr>
+                                <td><?php echo $row->NomeProduto; ?></td>
+                                <td>R$ 
+                                <?php 
+                                    $prec = $row->PrecoOriginal - $row->ValorDesconto;
+                                    echo number_format($prec,2, ',', '.'); 
+                                ?>
+                                </td>
+                                <td><img class="img-responsive" src="../public/img/75x75.png" alt="Imagem do produto" class="rounded"></td>
+                                <td><?php echo $row->Descricao; ?></td>
+                                <td><a href="produto.php?id=<?php echo $row->id; ?>">Ir <i class="fas fa-chevron-right"></i></a></td>
+                            </tr>
+                        <?php
+                        } 
+                    ?>
+                        
                     </tbody>
                 </table>
             </div>

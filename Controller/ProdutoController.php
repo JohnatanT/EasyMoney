@@ -25,7 +25,7 @@ if(!empty($_POST['desconto']) && $_POST['desconto'] != 0):
     header("Location: ../View/index.php"); /* Redirect browser */
     exit(); 
 else:
-    $p->insertSemDesconto($nome,$valor,$desc,$idImg);
+    $p->insertSemDesconto($nome,$valor,$desc,$idImg,'16');
     header("Location: ../View/index.php"); /* Redirect browser */
     exit(); 
 endif;
